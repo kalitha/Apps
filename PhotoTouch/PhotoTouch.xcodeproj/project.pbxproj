@@ -15,6 +15,8 @@
 		0A2261701DCCAA3100FB052F /* grass_PNG4930.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A22616F1DCCAA3100FB052F /* grass_PNG4930.png */; };
 		0A2261721DCCAA3400FB052F /* image1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0A2261711DCCAA3400FB052F /* image1.jpg */; };
 		0A2261741DCCAA3B00FB052F /* images.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 0A2261731DCCAA3B00FB052F /* images.jpeg */; };
+		0A405AEF1DD06ADB007D1413 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A405AEE1DD06ADB007D1413 /* AudioToolbox.framework */; };
+		0A405AF31DD08093007D1413 /* beep19.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 0A405AF21DD08093007D1413 /* beep19.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		0A22616F1DCCAA3100FB052F /* grass_PNG4930.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grass_PNG4930.png; sourceTree = "<group>"; };
 		0A2261711DCCAA3400FB052F /* image1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image1.jpg; sourceTree = "<group>"; };
 		0A2261731DCCAA3B00FB052F /* images.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = images.jpeg; sourceTree = "<group>"; };
+		0A405AEE1DD06ADB007D1413 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		0A405AF21DD08093007D1413 /* beep19.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = beep19.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A405AEF1DD06ADB007D1413 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +49,7 @@
 		0A2261511DCCA8AE00FB052F = {
 			isa = PBXGroup;
 			children = (
+				0A405AEE1DD06ADB007D1413 /* AudioToolbox.framework */,
 				0A22615C1DCCA8AE00FB052F /* PhotoTouch */,
 				0A22615B1DCCA8AE00FB052F /* Products */,
 			);
@@ -60,13 +66,14 @@
 		0A22615C1DCCA8AE00FB052F /* PhotoTouch */ = {
 			isa = PBXGroup;
 			children = (
+				0A405AF21DD08093007D1413 /* beep19.mp3 */,
 				0A22615D1DCCA8AE00FB052F /* AppDelegate.swift */,
 				0A22615F1DCCA8AE00FB052F /* ViewController.swift */,
 				0A2261731DCCAA3B00FB052F /* images.jpeg */,
+				0A2261641DCCA8AE00FB052F /* Assets.xcassets */,
 				0A22616F1DCCAA3100FB052F /* grass_PNG4930.png */,
 				0A2261711DCCAA3400FB052F /* image1.jpg */,
 				0A2261611DCCA8AE00FB052F /* Main.storyboard */,
-				0A2261641DCCA8AE00FB052F /* Assets.xcassets */,
 				0A2261661DCCA8AE00FB052F /* LaunchScreen.storyboard */,
 				0A2261691DCCA8AE00FB052F /* Info.plist */,
 			);
@@ -132,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A2261701DCCAA3100FB052F /* grass_PNG4930.png in Resources */,
+				0A405AF31DD08093007D1413 /* beep19.mp3 in Resources */,
 				0A2261721DCCAA3400FB052F /* image1.jpg in Resources */,
 				0A2261681DCCA8AE00FB052F /* LaunchScreen.storyboard in Resources */,
 				0A2261651DCCA8AE00FB052F /* Assets.xcassets in Resources */,
@@ -300,6 +308,7 @@
 				0A22616E1DCCA8AE00FB052F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
