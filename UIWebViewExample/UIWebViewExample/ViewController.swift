@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  UIWebViewExample
 //
-//  Created by BridgeLabz Solutions LLP on 07/11/16.
+//  Created by Kalitha H N on 07/11/16.
 //  Copyright © 2016 BridgeLabz Solutions LLP. All rights reserved.
 //
 

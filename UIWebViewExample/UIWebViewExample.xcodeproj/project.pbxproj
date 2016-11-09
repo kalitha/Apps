@@ -54,14 +54,38 @@
 		0A405AFF1DD0AE55007D1413 /* UIWebViewExample */ = {
 			isa = PBXGroup;
 			children = (
+				0AC7B04E1DD3319B007EB104 /* App */,
+				0AC7B04F1DD331BD007EB104 /* Controller */,
+				0AC7B0501DD33257007EB104 /* Resource */,
+			);
+			path = UIWebViewExample;
+			sourceTree = "<group>";
+		};
+		0AC7B04E1DD3319B007EB104 /* App */ = {
+			isa = PBXGroup;
+			children = (
 				0A405B001DD0AE55007D1413 /* AppDelegate.swift */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		0AC7B04F1DD331BD007EB104 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
 				0A405B021DD0AE55007D1413 /* ViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		0AC7B0501DD33257007EB104 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				0A405B0C1DD0AE55007D1413 /* Info.plist */,
 				0A405B041DD0AE55007D1413 /* Main.storyboard */,
 				0A405B071DD0AE55007D1413 /* Assets.xcassets */,
 				0A405B091DD0AE55007D1413 /* LaunchScreen.storyboard */,
-				0A405B0C1DD0AE55007D1413 /* Info.plist */,
 			);
-			path = UIWebViewExample;
+			name = Resource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,6 +312,7 @@
 				0A405B111DD0AE55007D1413 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

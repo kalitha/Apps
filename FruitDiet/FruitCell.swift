@@ -2,7 +2,7 @@
 //  FruitCell.swift
 //  FruitDiet
 //
-//  Created by BridgeLabz Solutions LLP on 08/11/16.
+//  Created by Kalitha H N on 08/11/16.
 //  Copyright © 2016 BridgeLabz Solutions LLP. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  AddFoodViewController.swift
 //  FoodJournal
 //
-//  Created by BridgeLabz on 03/11/16.
+//  Created by Kalitha H N on 03/11/16.
 //  Copyright © 2016 com.bridgeLabz. All rights reserved.
 //
 

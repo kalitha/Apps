@@ -58,16 +58,40 @@
 		0A2EFE8B1DC9EC4300B81231 /* FoodJournal */ = {
 			isa = PBXGroup;
 			children = (
+				0AC7B0471DD326FD007EB104 /* App */,
+				0AC7B0481DD3272F007EB104 /* Controller */,
+				0AC7B0491DD3279B007EB104 /* Resources */,
+			);
+			path = FoodJournal;
+			sourceTree = "<group>";
+		};
+		0AC7B0471DD326FD007EB104 /* App */ = {
+			isa = PBXGroup;
+			children = (
 				0A2EFE8C1DC9EC4300B81231 /* AppDelegate.swift */,
-				0A2EFE901DC9EC4300B81231 /* Main.storyboard */,
-				0A2EFE931DC9EC4300B81231 /* Assets.xcassets */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		0AC7B0481DD3272F007EB104 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
 				0A2EFE9E1DC9F3D000B81231 /* FoodTableViewController.swift */,
 				0A7254661DCAFD4F00B06CF1 /* AddFoodViewController.swift */,
 				0A7254681DCB69C800B06CF1 /* FoodDetailVC.swift */,
-				0A2EFE951DC9EC4300B81231 /* LaunchScreen.storyboard */,
-				0A2EFE981DC9EC4300B81231 /* Info.plist */,
 			);
-			path = FoodJournal;
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		0AC7B0491DD3279B007EB104 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0A2EFE901DC9EC4300B81231 /* Main.storyboard */,
+				0A2EFE981DC9EC4300B81231 /* Info.plist */,
+				0A2EFE931DC9EC4300B81231 /* Assets.xcassets */,
+				0A2EFE951DC9EC4300B81231 /* LaunchScreen.storyboard */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

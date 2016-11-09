@@ -2,7 +2,7 @@
 //  FoodTableViewController.swift
 //  FoodJournal
 //
-//  Created by BridgeLabz on 02/11/16.
+//  Created by Kalitha H N on 02/11/16.
 //  Copyright © 2016 com.bridgeLabz. All rights reserved.
 //
 
