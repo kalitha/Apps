@@ -104,8 +104,8 @@
 		0AC7B0441DD3225E007EB104 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				0AC7B03F1DD2D4F4007EB104 /* DetailViewController.swift */,
 				0AC7916B1DD1AD5A005FB47B /* ViewController.swift */,
+				0AC7B03F1DD2D4F4007EB104 /* DetailViewController.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
