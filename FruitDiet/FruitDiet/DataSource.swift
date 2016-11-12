@@ -18,7 +18,7 @@ class DataSource {
     var groups:[String] = []
     
     
-    func numbeOfRowsInEachGroup(index: Int) ->Int {
+    func numbeOfRowsInEachGroup(_ index: Int) ->Int {
     return fruitsInGroup(index).count
     }
     
@@ -28,14 +28,14 @@ class DataSource {
     
     
     
-    func gettGroupLabelAtIndex(index: Int) ->String {
+    func gettGroupLabelAtIndex(_ index: Int) ->String {
     return groups[index]
     }
     
     // MARK:- Populate Data from plist
     
     func populateData() {
-        if let path = NSBundle.mainBundle().pathForResource("fruits", ofType: "plist") {
+        if let path = Bundle.main.path(forResource: "fruits", ofType: "plist") {
             if let dictArray = NSArray(contentsOfFile: path) {
                 for item in dictArray {
                     if let dict = item as? NSDictionary {
@@ -55,7 +55,7 @@ class DataSource {
     
     // MARK:- FruitsForEachGroup
     
-    func fruitsInGroup(index: Int) -> [Fruit] {
+    func fruitsInGroup(_ index: Int) -> [Fruit] {
     let item = groups[index]
     let filteredFruits = fruits.filter { (fruit: Fruit) -> Bool in
     return fruit.group == item
@@ -70,26 +70,26 @@ class DataSource {
         
         let count = fruitsInGroup(0).count
         let index = count > 0 ? count - 1 : count
-        fruits.insert(fruit, atIndex: index)
+        fruits.insert(fruit, at: index)
         
         return index
     }
     
     // MARK:- Delete Items
-    func deleteItems(items: [Fruit]) {
+    func deleteItems(_ items: [Fruit]) {
         
         for item in items {
             // remove item
             let index = fruits.indexOfObject(item)
             if index != -1 {
-                fruits.removeAtIndex(index)
+                fruits.remove(at: index)
             }
         }
     }
 }
 
 extension Array {
-    func indexOfObject<T:AnyObject>(item:T) -> Int {
+    func indexOfObject<T:AnyObject>(_ item:T) -> Int {
         var index = -1
         for element in self {
             index += 1

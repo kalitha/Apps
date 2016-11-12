@@ -12,7 +12,7 @@ class FoodTableViewController: UITableViewController {
     //declaring food array which consists of dictionary elements
     var foodArray = [NSDictionary]()
     
-    func addFood(food: NSDictionary){
+    func addFood(_ food: NSDictionary){
         //updating array with dictionary
         foodArray.append(food)
         //to display the changes in tableview
@@ -20,33 +20,33 @@ class FoodTableViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(saveData(_:)), name: UIApplicationDidEnterBackgroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector:#selector(saveData(_:)), name: NSNotification.Name.UIApplicationDidEnterBackground, object: nil)
         
-        if(NSFileManager.defaultManager().fileExistsAtPath(self.plistPath())){
+        if(FileManager.default.fileExists(atPath: self.plistPath())){
             foodArray = NSArray(contentsOfFile: plistPath()) as! [NSDictionary]
             
         }else{
         let firstFoodDictionary: [String:String] = ["foodName": "masala dosa","restaurentName": "Dosa Corner",]
         
-        foodArray.append(firstFoodDictionary)
+        foodArray.append(firstFoodDictionary as NSDictionary)
         }
         
         
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
     }
     
-    override func viewDidDisappear(animated: Bool) {
+    override func viewDidDisappear(_ animated: Bool) {
         super.viewDidAppear(true)
     }
 
@@ -56,30 +56,30 @@ class FoodTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         
         return 1
     }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return foodArray.count
         
     }
 
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //accesing row number
         let rowNumber=indexPath.row
         
 //        let food=foodArray[rowNumber]
         
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
         
         let foodDictionary = foodArray[rowNumber]
         
-        let food=foodDictionary.objectForKey("foodName") as! String
-        let restaurant=foodDictionary.objectForKey("restaurentName") as! String
+        let food=foodDictionary.object(forKey: "foodName") as! String
+        let restaurant=foodDictionary.object(forKey: "restaurentName") as! String
         // Configure the cell...
         cell.textLabel?.text = food
             cell.detailTextLabel?.text=restaurant
@@ -99,15 +99,15 @@ class FoodTableViewController: UITableViewController {
 
     
     // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
             // Delete the row from the data source
             
-            foodArray.removeAtIndex(indexPath.row)
+            foodArray.remove(at: indexPath.row)
             print("deleting item")
         
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
@@ -131,24 +131,24 @@ class FoodTableViewController: UITableViewController {
     
     func plistPath() -> String{
         let homeDirectory=NSHomeDirectory()
-        let filePath=homeDirectory.stringByAppendingString("/Documents/food.plist")
+        let filePath=homeDirectory + "/Documents/food.plist"
         return filePath
         }
     
     //used to save data when we get the notification
-    func saveData(notification:NSNotification) -> Void {
+    func saveData(_ notification:Notification) -> Void {
         
-        let upadatedArray:NSArray = foodArray
+        let upadatedArray:NSArray = foodArray as NSArray
         let filePath=self.plistPath()
-        upadatedArray.writeToFile(filePath, atomically: true)
+        upadatedArray.write(toFile: filePath, atomically: true)
     }
     
    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
         if ((segue.identifier)=="AddFoodSegue"){
             //creating obj of destination
-        let addFoodViewControllerObj = segue.destinationViewController as! AddFoodViewController
+        let addFoodViewControllerObj = segue.destination as! AddFoodViewController
             
         addFoodViewControllerObj.foodViewcontrollerObj=self
         }
@@ -159,7 +159,7 @@ class FoodTableViewController: UITableViewController {
         
         let selectedFood=foodArray[(selectedRow?.row)!]
             //getting FoodDetailVC by using destinationViewController property
-        let foodDetailVCObj=segue.destinationViewController as! FoodDetailVC
+        let foodDetailVCObj=segue.destination as! FoodDetailVC
        foodDetailVCObj.food=selectedFood
             
         }

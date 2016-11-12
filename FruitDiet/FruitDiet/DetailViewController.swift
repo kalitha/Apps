@@ -15,8 +15,8 @@ class DetailViewController: UIViewController {
     var fruit:Fruit?
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.title = fruit!.name?.capitalizedString
-        imageView.image = UIImage(named: fruit!.name!.lowercaseString)
+        navigationItem.title = fruit!.name?.capitalized
+        imageView.image = UIImage(named: fruit!.name!.lowercased())
     }
 
     override func didReceiveMemoryWarning() {

@@ -22,7 +22,7 @@ class AddFoodViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func addFoodButtonPressed(sender: AnyObject) {
+    @IBAction func addFoodButtonPressed(_ sender: AnyObject) {
         let newFoodName=foodTextField.text
         let newRestaurantName=restaurantTextField.text
         
@@ -36,7 +36,7 @@ class AddFoodViewController: UIViewController {
         let  firstFoodDictionary: [String:String] = ["foodName": newFoodName!,"restaurentName": newRestaurantName!,"rating":rating]
         foodViewcontrollerObj!.addFood(firstFoodDictionary)
         
-        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {

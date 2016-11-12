@@ -26,13 +26,13 @@ class FoodDetailVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
        //setting the foodname and restuarant name
-        foodLabel.text=food.objectForKey("foodName")as? String
-        restaurantLabel.text=food.objectForKey("restaurentName")as? String
+        foodLabel.text=food.object(forKey: "foodName")as? String
+        restaurantLabel.text=food.object(forKey: "restaurentName")as? String
         
-        let foodRating=food.objectForKey("rating")as? String
+        let foodRating=food.object(forKey: "rating")as? String
         //unwrapping the optional
         if let unwrapped = foodRating{
             let foodRatingSentence="the food is \(unwrapped)"
