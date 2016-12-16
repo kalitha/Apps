@@ -34,7 +34,7 @@ class AddFoodViewController: UIViewController {
             rating="bad"
         }
         let  firstFoodDictionary: [String:String] = ["foodName": newFoodName!,"restaurentName": newRestaurantName!,"rating":rating]
-        foodViewcontrollerObj!.addFood(firstFoodDictionary)
+        foodViewcontrollerObj!.addFood(firstFoodDictionary as NSDictionary)
         
         self.presentingViewController?.dismiss(animated: true, completion: nil)
     }

@@ -14,8 +14,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        let url = NSURL (string: "https://www.google.com");
-        let requestObj = NSURLRequest(URL: url!);
+        let url = URL (string: "https://www.google.com");
+        let requestObj = URLRequest(url: url!);
         webView.loadRequest(requestObj);
         
     }
@@ -26,19 +26,19 @@ class ViewController: UIViewController {
     }
 
 
-    @IBAction func goBack(sender: UIButton) {
+    @IBAction func goBack(_ sender: UIButton) {
         webView.goBack()
     }
     
-    @IBAction func reload(sender: UIButton) {
+    @IBAction func reload(_ sender: UIButton) {
         webView.reload()
     }
     
-    @IBAction func cancel(sender: UIButton) {
+    @IBAction func cancel(_ sender: UIButton) {
         webView.stopLoading()
     }
     
-    @IBAction func goForward(sender: UIButton) {
+    @IBAction func goForward(_ sender: UIButton) {
         webView.goForward()
     }
     

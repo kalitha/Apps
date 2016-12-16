@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var welcomeLabel: UILabel!
-    @IBAction func clicked(sender: UIButton) {
+    @IBAction func clicked(_ sender: UIButton) {
         welcomeLabel.text="Go back"
     }
     override func viewDidLoad() {

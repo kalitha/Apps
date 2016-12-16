@@ -12,15 +12,15 @@ class ViewController: UIViewController ,UIImagePickerControllerDelegate ,UINavig
 
     var  soundID : SystemSoundID = 0 //used to hold the sound
     //to create an action when button is pressed
-    @IBAction func addButtonPressed(sender: AnyObject) {
+    @IBAction func addButtonPressed(_ sender: AnyObject) {
         //creating obj of UIImagePickerController
         let imagePicker = UIImagePickerController()
         //using delegates in view controller(delegates are the actions)
         imagePicker.delegate = self
         //source is photo library
-        imagePicker.sourceType = .PhotoLibrary
+        imagePicker.sourceType = .photoLibrary
         
-        presentViewController(imagePicker, animated: true, completion: nil)
+        present(imagePicker, animated: true, completion: nil)
 
     }
     
@@ -31,11 +31,11 @@ class ViewController: UIViewController ,UIImagePickerControllerDelegate ,UINavig
         // Do any additional setup after loading the view, typically from a nib.
         
         //used to find path for sound effect
-        let filePath = NSBundle.mainBundle().pathForResource("beep19", ofType: "mp3")
-        let soundURL = NSURL(fileURLWithPath: filePath!)
+        let filePath = Bundle.main.path(forResource: "beep19", ofType: "mp3")
+        let soundURL = URL(fileURLWithPath: filePath!)
         
         //creating sound with c function using AudioServicesCreateSystemSoundID
-        AudioServicesCreateSystemSoundID(soundURL, &soundID)
+        AudioServicesCreateSystemSoundID(soundURL as CFURL, &soundID)
         
            }
     
@@ -46,31 +46,31 @@ class ViewController: UIViewController ,UIImagePickerControllerDelegate ,UINavig
     }
 
     
-    func panGestureRecognized(gestureRecognizer:UIPanGestureRecognizer){
+    func panGestureRecognized(_ gestureRecognizer:UIPanGestureRecognizer){
        // AudioServicesPlaySystemSound(self.soundID)
-        let newPoint : CGPoint = gestureRecognizer.locationInView(self.view)
+        let newPoint : CGPoint = gestureRecognizer.location(in: self.view)
         //to bring the image that we tapped into front
-        self.view.bringSubviewToFront(gestureRecognizer.view!)
+        self.view.bringSubview(toFront: gestureRecognizer.view!)
         gestureRecognizer.view?.center = newPoint
         
         
     }
     
-    func tapGestureRecognized(gestureRecognizer:UITapGestureRecognizer){
-        self.view.bringSubviewToFront(self.view)
+    func tapGestureRecognized(_ gestureRecognizer:UITapGestureRecognizer){
+        self.view.bringSubview(toFront: self.view)
 //we set the bounds inorder to change the size of the image view, here the image expans to 200 and 200 in 0.2 seconds
         
-        UIView.animateWithDuration(0.2, animations: {
-            gestureRecognizer.view?.bounds = CGRectMake(0, 0, 200, 200)
+        UIView.animate(withDuration: 0.2, animations: {
+            gestureRecognizer.view?.bounds = CGRect(x: 0, y: 0, width: 200, height: 200)
             }, completion: { (value: Bool) in //code to shrink the image back(i.e inorder to
-                UIView.animateWithDuration(0.2, animations: { //shrink the image back we need
-                gestureRecognizer.view?.bounds=CGRectMake(0, 0, 110, 110)//to write another animateWithDuration method
+                UIView.animate(withDuration: 0.2, animations: { //shrink the image back we need
+                gestureRecognizer.view?.bounds=CGRect(x: 0, y: 0, width: 110, height: 110)//to write another animateWithDuration method
                 })
         
         })
     }
     //gets called when useer picks an image
-    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
        // var image=UIImage() [we can use 2 steps or only below step is sufficient
         //getting the image
         let image=(info[UIImagePickerControllerOriginalImage] as? UIImage)!
@@ -79,16 +79,16 @@ class ViewController: UIViewController ,UIImagePickerControllerDelegate ,UINavig
         //creating an image view
         let newImageView = UIImageView()
         newImageView.image = image
-        newImageView.userInteractionEnabled = true
-        self .dismissViewControllerAnimated(true, completion: {
+        newImageView.isUserInteractionEnabled = true
+        self .dismiss(animated: true, completion: {
             AudioServicesPlaySystemSound(self.soundID)
-            newImageView.frame = CGRectMake(0,0, 110, 110)
+            newImageView.frame = CGRect(x: 0,y: 0, width: 110, height: 110)
             //adding imageview to the view
             self.view.addSubview(newImageView)
             
-            UIView.animateWithDuration(0.3, animations: {
+            UIView.animate(withDuration: 0.3, animations: {
                 //used to set the size and location of the image view
-                [newImageView.frame = CGRectMake(CGFloat(arc4random_uniform(300)) ,CGFloat(arc4random_uniform(200)), 110, 110)]
+                [newImageView.frame = CGRect(x: CGFloat(arc4random_uniform(300)) ,y: CGFloat(arc4random_uniform(200)), width: 110, height: 110)]
                // [newImageView .alpha : 0.5]
             }) })
 
@@ -103,8 +103,8 @@ class ViewController: UIViewController ,UIImagePickerControllerDelegate ,UINavig
     }
     
     //gets called when user doesnt pick any image
-    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
-        self .dismissViewControllerAnimated(true, completion: nil)//used to dismiss the view controller
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        self .dismiss(animated: true, completion: nil)//used to dismiss the view controller
     }
 }
 
